@@ -55,4 +55,11 @@ public class Personaje {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public void recibirdmg (Personaje personaje1,  Personaje personaje2) {
+
+        int multiplicadorDefensa1 = personaje1.getDefensa() / 100;
+        int multiplicadorDefensa2 = personaje2.getDefensa() / 100;
+        
+    }
 }

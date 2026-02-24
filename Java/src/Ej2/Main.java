@@ -19,12 +19,33 @@ public class Main {
         listaPersonajes.add(hechicero1);
         listaPersonajes.add(hechicero2);
 
+        System.out.println("Que personajes quieres que se enfrenten entre ellos?");
+
         int i = 1;
         for (Personaje personaje : listaPersonajes) {
             System.out.println(i + ". " + personaje.getNombre() + "Tipo: " + personaje.getTipo());
             i++;
         }
+        int eleccion1 = sc.nextInt();
+        Personaje personaje1 = listaPersonajes.get(eleccion1 - 1);
 
-        
+        System.out.println("Selecciona el siguiente personaje");
+        int eleccion2 = sc.nextInt();
+        int reintento;
+
+        if (eleccion1 == eleccion2) {
+            while (true) {
+                System.out.println("Elección no válida, no puedes enfrentar al mismo personaje");
+                reintento  = sc.nextInt();
+                if (reintento != eleccion2) {
+                    break;
+                }
+            }
+            Personaje personaje2 = listaPersonajes.get(reintento - 1);
+        } else {
+            Personaje personaje2 = listaPersonajes.get(eleccion2 - 1);
+        }
+
+
     }
 }
