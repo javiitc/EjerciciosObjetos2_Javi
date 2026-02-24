@@ -10,4 +10,18 @@ public class Gerente extends Empleados {
         this.bonus = bonus;
         this.empleadosCargo = empleadosCargo;
     }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public int getEmpleadosCargo() {
+        return empleadosCargo;
+    }
+
+    public void calcularSalario (int salarioBase, int bonus, int empleadosCargo) {
+        int bonusTotal = bonus * empleadosCargo;
+        int salarioTotal = salarioBase + bonusTotal;
+        System.out.println("Salario total: " + salarioTotal);
+    }
 }

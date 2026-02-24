@@ -10,4 +10,18 @@ public class Programador extends Empleados {
         this.lenguajePrincipal = lenguajePrincipal;
         this.horasExtra = horasExtra;
     }
+
+    public String getLenguajePrincipal() {
+        return lenguajePrincipal;
+    }
+
+    public int getHorasExtra() {
+        return horasExtra;
+    }
+
+    public void calcularSalario (int salarioBase, int horasExtra) {
+        int salarioHorasExtra = horasExtra * 14;
+        int salarioTotal = salarioBase + salarioHorasExtra;
+        System.out.println("Salario total:" + salarioTotal);
+    }
 }

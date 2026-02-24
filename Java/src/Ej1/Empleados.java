@@ -45,4 +45,5 @@ public class Empleados {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 }
