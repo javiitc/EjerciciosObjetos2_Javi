@@ -22,6 +22,6 @@ public class Programador extends Empleados {
     public void calcularSalario (int salarioBase, int horasExtra) {
         int salarioHorasExtra = horasExtra * 14;
         int salarioTotal = salarioBase + salarioHorasExtra;
-        System.out.println("Salario total:" + salarioTotal);
+        System.out.println("Salario total: " + salarioTotal + "€");
     }
 }

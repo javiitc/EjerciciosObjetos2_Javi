@@ -22,6 +22,6 @@ public class Gerente extends Empleados {
     public void calcularSalario (int salarioBase, int bonus, int empleadosCargo) {
         int bonusTotal = bonus * empleadosCargo;
         int salarioTotal = salarioBase + bonusTotal;
-        System.out.println("Salario total: " + salarioTotal);
+        System.out.println("Salario total: " + salarioTotal + "€");
     }
 }

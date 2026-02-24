@@ -23,54 +23,67 @@ public class Main {
         personasLista.add(programador2);
         personasLista.add(gerente);
 
-        int i = 1;
+        boolean consulta = true;
 
-        for (Empleados empleados : personasLista){
-            System.out.println(i + ". " + empleados.getNombre());
-            i++;
-        }
+        while  (consulta) {
 
-        System.out.println("De que trabajador deseas consultar información?");
-        int eleccion = sc.nextInt();
+            System.out.println("De que trabajador deseas consultar información?");
 
-        switch (eleccion) {
-            case 1:
-                System.out.println(empleado1.getNombre());
-                System.out.println("Edad: " + empleado1.getEdad());
-                System.out.println("Salario: " + empleado1.getSalarioBase());
-                System.out.println("Departamento: " + empleado1.getDepartamento());
-                break;
-            case 2:
-                System.out.println(programador1.getNombre());
-                System.out.println("Edad: " + programador1.getEdad());
-                System.out.println("Salario base: " + programador1.getSalarioBase() + "€");
-                System.out.println("Departamento: " + programador1.getDepartamento());
-                System.out.println("Lenguaje de programación principal: " + programador1.getLenguajePrincipal());
-                System.out.println("Horas extras: " + programador1.getHorasExtra());
-                programador1.calcularSalario(programador1.getSalarioBase(), programador1.getHorasExtra());
-                break;
-            case 3:
-                System.out.println(empleado2.getNombre());
-                System.out.println("Edad: " + empleado2.getEdad());
-                System.out.println("Salario: " + empleado2.getSalarioBase());
-                System.out.println("Departamento: " + empleado2.getDepartamento());
-                break;
-            case 4:
-                System.out.println(programador2.getNombre());
-                System.out.println("Edad: " + programador2.getEdad());
-                System.out.println("Salario base: " + programador2.getSalarioBase() + "€");
-                System.out.println("Departamento: " + programador2.getDepartamento());
-                System.out.println("Lenguaje de programación principal: " + programador2.getLenguajePrincipal());
-                System.out.println("Horas extras: " + programador2.getHorasExtra());
-                programador2.calcularSalario(programador2.getSalarioBase(), programador2.getHorasExtra());
-                break;
-            case 5:
-                System.out.println(gerente.getNombre());
-                System.out.println("Edad: "+ gerente.getEdad());
-                System.out.println("Salario base: " + gerente.getSalarioBase());
-                System.out.println("Departamento: " + gerente.getDepartamento());
-                System.out.println("Empleados a cargo: " + gerente.getEmpleadosCargo());
-                gerente.calcularSalario(gerente.getSalarioBase(), gerente.getBonus(), gerente.getEmpleadosCargo());
+            int i = 1;
+            for (Empleados empleados : personasLista){
+                System.out.println(i + ". " + empleados.getNombre());
+                i++;
+            }
+
+            System.out.println("Seleccione 6 para salir");
+            int eleccion = sc.nextInt();
+
+            switch (eleccion) {
+                case 1:
+                    System.out.println(empleado1.getNombre());
+                    System.out.println("Edad: " + empleado1.getEdad());
+                    System.out.println("Salario: " + empleado1.getSalarioBase() + "€");
+                    System.out.println("Departamento: " + empleado1.getDepartamento());
+                    break;
+                case 2:
+                    System.out.println(programador1.getNombre());
+                    System.out.println("Edad: " + programador1.getEdad());
+                    System.out.println("Salario base: " + programador1.getSalarioBase() + "€");
+                    System.out.println("Departamento: " + programador1.getDepartamento());
+                    System.out.println("Lenguaje de programación principal: " + programador1.getLenguajePrincipal());
+                    System.out.println("Horas extras: " + programador1.getHorasExtra());
+                    programador1.calcularSalario(programador1.getSalarioBase(), programador1.getHorasExtra());
+                    break;
+                case 3:
+                    System.out.println(empleado2.getNombre());
+                    System.out.println("Edad: " + empleado2.getEdad());
+                    System.out.println("Salario: " + empleado2.getSalarioBase() + "€");
+                    System.out.println("Departamento: " + empleado2.getDepartamento());
+                    break;
+                case 4:
+                    System.out.println(programador2.getNombre());
+                    System.out.println("Edad: " + programador2.getEdad());
+                    System.out.println("Salario base: " + programador2.getSalarioBase() + "€");
+                    System.out.println("Departamento: " + programador2.getDepartamento());
+                    System.out.println("Lenguaje de programación principal: " + programador2.getLenguajePrincipal());
+                    System.out.println("Horas extras: " + programador2.getHorasExtra());
+                    programador2.calcularSalario(programador2.getSalarioBase(), programador2.getHorasExtra());
+                    break;
+                case 5:
+                    System.out.println(gerente.getNombre());
+                    System.out.println("Edad: "+ gerente.getEdad());
+                    System.out.println("Salario base: " + gerente.getSalarioBase() + "€");
+                    System.out.println("Departamento: " + gerente.getDepartamento());
+                    System.out.println("Empleados a cargo: " + gerente.getEmpleadosCargo());
+                    gerente.calcularSalario(gerente.getSalarioBase(), gerente.getBonus(), gerente.getEmpleadosCargo());
+                    break;
+                case 6:
+                    System.out.println("Consulta finalizada");
+                    consulta = false;
+                    break;
+            }
+
+            System.out.println();
         }
     }
 }
