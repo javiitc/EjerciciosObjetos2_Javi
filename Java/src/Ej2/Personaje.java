@@ -60,6 +60,6 @@ public class Personaje {
 
         int multiplicadorDefensa1 = personaje1.getDefensa() / 100;
         int multiplicadorDefensa2 = personaje2.getDefensa() / 100;
-        
+
     }
 }
