@@ -56,10 +56,18 @@ public class Personaje {
         this.tipo = tipo;
     }
 
-    public void recibirdmg (Personaje personaje1,  Personaje personaje2) {
+    public void recibirdmg(int daño) {
+        this.vida -= daño;
+        if (this.vida < 0) this.vida = 0;
+    }
 
-        int multiplicadorDefensa1 = personaje1.getDefensa() / 100;
-        int multiplicadorDefensa2 = personaje2.getDefensa() / 100;
+    public void atacar(Personaje objetivo) {
+        int daño = Math.max(this.ataque - objetivo.getDefensa() / 10, 1);
+        objetivo.recibirdmg(daño);
+        System.out.println(this.nombre + " ataca a " + objetivo.getNombre() + " causando " + daño + " de daño. Vida de " + objetivo.getNombre() + ": " + objetivo.getVida());
+    }
 
+    public boolean estaVivo() {
+        return vida > 0;
     }
 }

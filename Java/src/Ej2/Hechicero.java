@@ -19,4 +19,12 @@ public class Hechicero extends Personaje {
       return expansionDominio;
    }
 
+   @Override
+   public void atacar(Personaje objetivo) {
+      int bonusEnergia = energiaMaldita / 10;
+      int daño = Math.max(getAtaque() + bonusEnergia - objetivo.getDefensa() / 10, 1);
+      objetivo.recibirdmg(daño);
+      System.out.println(getNombre() + " [Hechicero] usa " + expansionDominio + " sobre " + objetivo.getNombre() + " (+" + bonusEnergia + ") causando " + daño + " de daño. Vida de " + objetivo.getNombre() + ": " + objetivo.getVida());
+   }
+
 }

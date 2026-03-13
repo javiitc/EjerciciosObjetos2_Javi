@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         ArrayList<Personaje> listaPersonajes = new ArrayList<>();
@@ -19,33 +19,43 @@ public class Main {
         listaPersonajes.add(hechicero1);
         listaPersonajes.add(hechicero2);
 
-        System.out.println("Que personajes quieres que se enfrenten entre ellos?");
+        System.out.println("¿Qué personajes quieres que se enfrenten?");
 
         int i = 1;
         for (Personaje personaje : listaPersonajes) {
-            System.out.println(i + ". " + personaje.getNombre() + "Tipo: " + personaje.getTipo());
+            System.out.println(i + ". " + personaje.getNombre() + " - Tipo: " + personaje.getTipo());
             i++;
         }
+
         int eleccion1 = sc.nextInt();
         Personaje personaje1 = listaPersonajes.get(eleccion1 - 1);
 
-        System.out.println("Selecciona el siguiente personaje");
+        System.out.println("Selecciona el segundo personaje:");
         int eleccion2 = sc.nextInt();
-        int reintento;
 
-        if (eleccion1 == eleccion2) {
-            while (true) {
-                System.out.println("Elección no válida, no puedes enfrentar al mismo personaje");
-                reintento  = sc.nextInt();
-                if (reintento != eleccion2) {
-                    break;
-                }
-            }
-            Personaje personaje2 = listaPersonajes.get(reintento - 1);
-        } else {
-            Personaje personaje2 = listaPersonajes.get(eleccion2 - 1);
+        while (eleccion1 == eleccion2) {
+            System.out.println("Elección no válida, no puedes enfrentar al mismo personaje. Elige otro:");
+            eleccion2 = sc.nextInt();
         }
 
+        Personaje personaje2 = listaPersonajes.get(eleccion2 - 1);
+
+        System.out.println("\n--- ¡COMIENZA EL COMBATE! ---");
+        System.out.println(personaje1.getNombre() + " vs " + personaje2.getNombre() + "\n");
+
+        int turno = 1;
+        while (personaje1.estaVivo() && personaje2.estaVivo()) {
+            System.out.println("--- Turno " + turno + " ---");
+            personaje1.atacar(personaje2);
+            if (personaje2.estaVivo()) {
+                personaje2.atacar(personaje1);
+            }
+            turno++;
+            System.out.println();
+        }
+
+        String ganador = personaje1.estaVivo() ? personaje1.getNombre() : personaje2.getNombre();
+        System.out.println("¡" + ganador + " ha ganado el combate!");
 
     }
 }

@@ -20,4 +20,11 @@ public class Guerrero extends Personaje {
         return armadura;
     }
 
+    @Override
+    public void atacar(Personaje objetivo) {
+        int daño = Math.max(getAtaque() + fuerza - objetivo.getDefensa() / 10, 1);
+        objetivo.recibirdmg(daño);
+        System.out.println(getNombre() + " [Guerrero] golpea a " + objetivo.getNombre() + " con fuerza bruta (+" + fuerza + ") causando " + daño + " de daño. Vida de " + objetivo.getNombre() + ": " + objetivo.getVida());
+    }
+
 }
